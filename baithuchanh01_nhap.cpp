@@ -100,8 +100,10 @@ class Vehicle{
 				2hrs = (2*factor) + (2*factor)*0.3;
 			}
 			else{
-				2hrs = 
+				2hrs = (2*factor) - (2*factor)*0.05;
 			}
+			
+			return 2*2hrs + (parkingDuration - 2)*factor - (parkingDuration - 2)*factor*0.1;
 		}
 		void display(){
 			cout<<vehicleID<<" Loai phuong tien: "<<vehicleType<<" Gio vao bai: "<<entryTime<<" So gio do: "<<parkingDuration<<" Phi do xe: "<<parkingFee<<endl;
