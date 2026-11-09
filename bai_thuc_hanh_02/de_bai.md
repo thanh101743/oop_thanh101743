@@ -15,7 +15,8 @@ Lớp ParkingLot nâng cấp thành mảng tĩnh:
 + Phương thức:
     - bool isFull() const: kiểm tra đầy
     - bool addVehicle(const Vehicle &v): Thêm xe vào vị trí vehicles[currentVehicleCount), tăng currentVehicleCount lên 1
-    - bool removeVehicleIndex(int vID) const: trả về chỉ số của xe trong mảng (-1 nếu không tìm thấy)
+    - bool removeVehicle(int vID): Xóa xe theo ID, giảm currentVehicleCount đi 1
+    - int findVehicleIndex(int vID) const: trả về chỉ số của xe trong mảng (-1 nếu không tìm thấy)
     - void displayLotInfo() const: in thông tin bãi và danh sách các xe (duyệt mảng)
 
 Lớp 3: SystemInterface
@@ -35,4 +36,4 @@ Yêu cầu:
 - Thuật toán dồn mảng sang trái khi xóa xe hoặc bãi xe trong mảng tương ứng;
 - Khi thêm xe mới hệ thống tìm bãi đỗ đầu tiên còn trống để xếp vào. Nếu đã đầy tất cả thì cảnh báo ra màn hình.
 - Xử lý trùng ID bãi đỗ và phương tiện: nhập ID đã tồn tại trong mảng, hiển thị cảnh báo và dùng hàm generate ID ngẫu nhiên
-- Catch lỗi std::cin.fail(), xóa cờ lỗi std::cin.cleả(), loại bộ nhớ đệm std::cin.ignore(), yêu cầu nhập lại.
+- Catch lỗi std::cin.fail(), xóa cờ lỗi std::cin.clear(), loại bộ nhớ đệm std::cin.ignore(), yêu cầu nhập lại.
