@@ -10,33 +10,47 @@ Lớp ParkingLot nâng cấp thành con trỏ:
 Thuộc tính:
 int parkID;
 char size (S, M, L)
+
 int capacity: sức chứa tối đa hiện tại (S = 1, M = 2, L = 3)
+
 Vehicle** vehicles: Mảng con trỏ cấp phát động trên heap. Đây là con trỏ trỏ tới một mảng các con trỏ Vehicle* (hoặc Vehicle* vehicles cấp phát mảng đối tượng động)
+
 int current VehicleCount: đếm số lượng xe thực tế đang đỗ
+
 Phương thức:
 Hàm khởi tạo ParkingLot(int id, char s): cấp phát động mảng con trỏ: vehicles = new Vehicles*[capacity], khởi tạo tất cả các ô bằng nullptr;
+
 Hàm hủy ~ParkingLot: tự động duyệt và giải phóng từng đối tượng xe: delete vehicles[i] và giải phóng mảng con trỏ delete[] vehicles
+
 Hàm khởi tạo sao chép & operator =: thực hiện sao chép sâu toàn bộ danh sách xe.
 void resize(int newCapacity): hàm nội bộ tự động cấp phát mảng con trỏ
 mới với newCapacity, sao chép các con trỏ cũ sang mảng mới, giải phóng mảng
 cũ delete[] và cập nhật lại capacity.
+
 bool addVehicle(const Vehicle &v):  Thêm xe vào ô trống. Nếu bãi đã đầy
 (currentVehicleCount == capacity), tự động gọi resize(capacity * 2) trước
 khi thêm.
+
 bool removeVehicle(int vID): Tìm xe theo ID, gọi delete vehicles[i], dồn
 mảng con trỏ và gán vị trí cuối cùng về nullptr.
 
 Lớp 3: SystemInterface
 
 Thuộc tính:
-int lotCapacity: Sức chứa bãi đỗ tối đa hiện tại của hệ thống (Khởi tạo = 5).
+int lotCapacity: Sức chứa bãi đỗ tối đa hiện tại của hệ thống (Khởi tạo = 5)
+.
 int currentLotCount: Số lượng bãi đỗ hiện có trong hệ thống
+
 ParkingLot** parkingLots: Mảng con trỏ động chứa các bãi đỗ xe.
+
 Phương thức:
 void runMenu()
+
 Hàm khởi tạo: Cấp phát động mảng bãi đỗ: parkingLots = new ParkingLot*[lotCapacity]
+
 Hàm hủy (~SystemInterface()): Giải phóng toàn bộ các bãi đỗ delete parkingLots[i]
 và thu hồi mảng delete[] parkingLots.
+
 void resizeSystem(int newCapacity): Mở rộng sức chứa bãi đỗ của hệ thống
 khi vượt quá lotCapacity.
 
